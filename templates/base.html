@@ -19,11 +19,15 @@
 
             </ul>
             {% if request.user.is_authenticated %}
-            
-            
+            <form action="{% url 'logout' %}" method="POST" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger" style="margin-right: 5px;">Logout</button>
+            </form>
+            <a href="{% url 'password_change' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">password change</a>
+
             {%else %}
             <a href="{% url 'login' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">Login</a>
-            <a href="{% url 'signup' %}" class="btn btn-outline-success" style="margin-right: 5px;"type="submit">Signup</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">Signup</a>
             {% endif %}
         </div>
         </div>
