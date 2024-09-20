@@ -16,6 +16,13 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'secret' %}">secret</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'secret2' %}">secret class</a>
+                </li>
 
             </ul>
             {% if request.user.is_authenticated %}
@@ -23,11 +30,15 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-outline-danger" style="margin-right: 5px;">Logout</button>
             </form>
-            <a href="{% url 'password_change' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">password change</a>
+            
+            <a href="{% url 'password_change' %}" class="btn btn-outline-success" style="margin-right: 5px;"
+                type="submit">password change</a>
 
             {%else %}
-            <a href="{% url 'login' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">Login</a>
-            <a href="{% url 'signup' %}" class="btn btn-outline-success" style="margin-right: 5px;" type="submit">Signup</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-success" style="margin-right: 5px;"
+                type="submit">Login</a>
+            <a href="{% url 'signup' %}" class="btn btn-outline-success" style="margin-right: 5px;"
+                type="submit">Signup</a>
             {% endif %}
         </div>
         </div>

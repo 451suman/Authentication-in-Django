@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>this is login page</h1>
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+<h1>Login Page</h1>
+<!-- {% if form.errors %}
+<p class="text-danger">{{form.errors}}</p>
+{% endif %} -->
 <form action="" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Login" id="" class="btn btn-primary"> <a href="{% url 'password_reset' %}">Forgot password?</a>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" id="username" >
+       {{ form.username.errors}}
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="password" >
+       {{form.password.errors}}
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary"> 
+    <a href="{% url 'password_reset' %}">Forgot password?</a>
 </form>
-<p></p>
+
 {% endblock %}
