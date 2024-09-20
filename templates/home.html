@@ -4,7 +4,7 @@
 <h1>this is home page</h1>
 
 {% if request.user.is_authenticated %}
-    <h1>hello user</h1>
+    <h1>hello user @{{user.username}}</h1>
     Total register in site : {{count}}
 {% endif %}
 {% endblock %}
